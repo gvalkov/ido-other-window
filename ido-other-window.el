@@ -1,11 +1,46 @@
-;; This makes ido-find-file-other-window,
-;; ido-switch-buffer-other-window, et. al obsolete. It’s a much better
-;; abstraction, and I believe it should become apart of ido mode,
-;; because any command that uses ido-completing-read can benefit from
-;; it without any additional effort, including textmate.el’s
-;; textmate-goto-symbol.
+;;; ido-other-window.el --- invoke ido completion in other window
+
+;; Author: Tim Charper <timcharper@gmail.com>
+;; Maintainer: Georgi Valkov <georgi.t.valkov@gmail.com>
+;; Version: 0.1
+;; Created: 2012-07-15
+;; Keywords: ido, convenience
+;; EmacsWiki: InteractivelyDoThings
+;; URL: https://github.com/gvalkov/ido-other-window
 
 
+;;; Commentary:
+;;
+;; This plugin provides an alternative to the ido-*-other-window set of
+;; commands. The following shortcuts will become available to everything that
+;; relies on ido-completing-read:
+;;
+;;   C-o - invoke in other window
+;;   C-2 - split vertically and invoke in other window
+;;   C-3 - split horizontally and invoke in other window
+;;   C-4 - invoke in other window
+;;   C-5 - invoke in new frame
+;;
+;; It is the author and maintainer's strong conviction that this
+;; functionality would make a nice addition to ido itself.
+
+
+;;; Installation:
+;;
+;; Manual:
+;;   1) Place ido-other-window.el on your emacs load-path.
+;;   2) Add (require 'ido-other-window) to your .emacs or init.el.
+;;
+;; Package.el and MELPA:
+;;   1) Enable MELPA: http://melpa.milkbox.net/#installing
+;;   2) M-x package-install ido-other-window
+
+;;; License:
+;;
+;; -- Original license not specified by author  --
+
+
+;;; Code:
 (require 'ido)
 
 (defun split-window-vertically-and-switch ()
