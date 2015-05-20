@@ -1,6 +1,6 @@
 ;;; ido-other-window.el --- invoke ido completion in other window
 
-;; Author: Tim Charper <timcharper@gmail.com>
+;; Author: Tim C Harper <timcharper@gmail.com>
 ;; Maintainer: Georgi Valkov <georgi.t.valkov@gmail.com>
 ;; Version: 0.1
 ;; Created: 2012-07-15
