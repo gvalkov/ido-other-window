@@ -35,10 +35,7 @@
 ;;   1) Enable MELPA: http://melpa.milkbox.net/#installing
 ;;   2) M-x package-install ido-other-window
 
-;;; License:
-;;
-;; -- Original license not specified by author  --
-
+;; Licensed under the same terms as Emacs.
 
 ;;; Code:
 (require 'ido)
