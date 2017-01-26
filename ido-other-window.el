@@ -35,10 +35,7 @@
 ;;   1) Enable MELPA: http://melpa.milkbox.net/#installing
 ;;   2) M-x package-install ido-other-window
 
-;;; License:
-;;
-;; -- Original license not specified by author  --
-
+;; Licensed under the same terms as Emacs.
 
 ;;; Code:
 (require 'ido)
@@ -102,17 +99,16 @@
        (switch-to-buffer this-buffer)
        result))
 
-   (defadvice ido-init-completion-maps (after ido-init-completion-maps-with-other-window-keys activate)
-     (mapcar (lambda (map)
-               (define-key map (kbd "C-o") 'ido-invoke-in-other-window)
-               (define-key map (kbd "C-2") 'ido-invoke-in-vertical-split)
-               (define-key map (kbd "C-3") 'ido-invoke-in-horizontal-split)
-               (define-key map (kbd "C-4") 'ido-invoke-in-other-window)
-               (define-key map (kbd "C-5") 'ido-invoke-in-new-frame))
-             (list ido-buffer-completion-map
+   (defadvice ido-setup-completion-map (after ido-setup-completion-map-with-other-window-keys activate)
+     (dolist (map (list ido-buffer-completion-map
                    ido-common-completion-map
                    ido-file-completion-map
-                   ido-file-dir-completion-map)))))
+                   ido-file-dir-completion-map))
+             (define-key map (kbd "C-o") 'ido-invoke-in-other-window)
+             (define-key map (kbd "C-2") 'ido-invoke-in-vertical-split)
+             (define-key map (kbd "C-3") 'ido-invoke-in-horizontal-split)
+             (define-key map (kbd "C-4") 'ido-invoke-in-other-window)
+             (define-key map (kbd "C-5") 'ido-invoke-in-new-frame)))))
 
 (provide 'ido-other-window)
 ;;; ido-other-window.el ends here
